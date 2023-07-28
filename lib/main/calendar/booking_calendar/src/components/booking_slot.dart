@@ -1,3 +1,5 @@
+import 'package:hexcolor/hexcolor.dart';
+
 import '../../src/components/common_card.dart';
 import 'package:flutter/material.dart';
 
@@ -33,11 +35,11 @@ class BookingSlot extends StatelessWidget {
     }
 
     if (isBooked) {
-      return bookedSlotColor ?? Colors.red;
+      return bookedSlotColor ?? HexColor('#e30e0e');
     } else {
       return isSelected
-          ? selectedSlotColor ?? Colors.yellowAccent
-          : availableSlotColor ?? Colors.blueAccent;
+          ? selectedSlotColor ?? HexColor('#ffac40')
+          : availableSlotColor ?? HexColor('#0b4e25');
     }
   }
 

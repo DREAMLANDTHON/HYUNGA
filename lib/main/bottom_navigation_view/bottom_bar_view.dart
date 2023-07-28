@@ -144,7 +144,7 @@ class _BottomBarViewState extends State<BottomBarView>
                     child: Container(
                       // alignment: Alignment.center,s
                       decoration: BoxDecoration(
-                        color: HexColor('#107a39'),
+                        color: HexColor('#0b4e25'),
                         // gradient: LinearGradient(
                         //     colors: [
                         //       HexColor('#6bdd97'),
@@ -155,7 +155,7 @@ class _BottomBarViewState extends State<BottomBarView>
                         shape: BoxShape.circle,
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                              color: HexColor('#107a39')
+                              color: HexColor('#0b4e25')
                                   .withOpacity(0.4),
                               offset: const Offset(8.0, 16.0),
                               blurRadius: 16.0),

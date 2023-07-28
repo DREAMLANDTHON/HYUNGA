@@ -1,6 +1,7 @@
 import 'package:getwidget/getwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../../login/login_screen.dart';
 
@@ -181,6 +182,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     onChanged: (val) {},
                     value: true,
                     enabledThumbColor: Colors.white,
+                    enabledTrackColor: HexColor('#0b4e25'),
                     type: GFToggleType.ios,
                   )),
             ),
@@ -207,6 +209,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     onChanged: (val) {},
                     value: true,
                     enabledThumbColor: Colors.white,
+                    enabledTrackColor: HexColor('#0b4e25'),
                     type: GFToggleType.ios,
                   )),
             ),

@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import 'onboarding2.dart';
+import 'onboarding4.dart';
 
-class OnboardingImage extends StatefulWidget {
-  const OnboardingImage({Key? key}) : super(key: key);
+class OnboardingImage3 extends StatefulWidget {
+  const OnboardingImage3({Key? key}) : super(key: key);
 
   @override
-  State<OnboardingImage> createState() => _OnboardingImageState();
+  State<OnboardingImage3> createState() => _OnboardingImage3State();
 }
 
-class _OnboardingImageState extends State<OnboardingImage> {
+class _OnboardingImage3State extends State<OnboardingImage3> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => OnboardingImage2()),
+          MaterialPageRoute(builder: (context) => OnboardingImage4()),
               (route) => false,
         );
       },
@@ -26,7 +26,7 @@ class _OnboardingImageState extends State<OnboardingImage> {
           color: HexColor('#f5eee6'),
         ),
         alignment: Alignment.center,
-        child: Image.asset('assets/onboarding/onboarding1.png'),
+        child: Image.asset('assets/onboarding/onboarding3.png'),
       ),
     );
   }

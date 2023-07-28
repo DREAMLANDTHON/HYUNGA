@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:table_calendar/table_calendar.dart' as tc
@@ -239,14 +240,14 @@ class _BookingCalendarMainState extends State<BookingCalendarMain> {
                         children: [
                           BookingExplanation(
                               color: widget.availableSlotColor ??
-                                  Colors.greenAccent,
+                                  HexColor('#0b4e25'),
                               text: widget.availableSlotText ?? "Available"),
                           BookingExplanation(
                               color: widget.selectedSlotColor ??
                                   Colors.orangeAccent,
                               text: widget.selectedSlotText ?? "Selected"),
                           BookingExplanation(
-                              color: widget.bookedSlotColor ?? Colors.redAccent,
+                              color: widget.bookedSlotColor ?? HexColor('#ff5252'),
                               text: widget.bookedSlotText ?? "Booked"),
                           if (widget.hideBreakTime != null &&
                               widget.hideBreakTime == false)
@@ -317,7 +318,9 @@ class _BookingCalendarMainState extends State<BookingCalendarMain> {
                                       child: Text(
                                         widget.formatDateTime?.call(slot) ??
                                             BookingUtil.formatDateTime(slot),
-                                        style: getTextStyle(),
+                                        style: TextStyle(
+                                          color: Colors.white
+                                        ),
                                       ),
                                     ),
                                   );

@@ -36,7 +36,7 @@ const neutral1 = Color(0xff615e6e);
 const neutral2 = Color(0xff9e9cab);
 
 /// N7.
-const neutral7 = Color(0xfffcead5);
+const neutral7 = Color(0xfff5eee6);
 
 /// N7 with opacity.
 const neutral7WithOpacity = Color(0x80ffffff);

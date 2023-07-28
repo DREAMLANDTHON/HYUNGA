@@ -32,7 +32,7 @@ class _MainScreenState extends State<MainScreen>
 
     animationController = AnimationController(
         duration: const Duration(milliseconds: 600), vsync: this);
-    tabBody = SearchScreen(animationController: animationController);
+    tabBody = SearchScreen();
     super.initState();
   }
 
@@ -91,7 +91,7 @@ class _MainScreenState extends State<MainScreen>
                 }
                 setState(() {
                   tabBody =
-                      SearchScreen(animationController: animationController);
+                      SearchScreen();
                 });
               });
             } else if (index == 1) { // 채팅

@@ -1,5 +1,6 @@
 import 'package:firebase_test/main/main_home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import '../config/palette.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -68,7 +69,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                           ),
                           children: [
                             TextSpan(
-                              text: isSignupScreen ? ' to Yummy chat' : ' back',
+                              text: isSignupScreen ? ' to VerbaBridge' : ' back',
                               style: TextStyle(
                                   letterSpacing: 1.0,
                                   fontSize: 25,
@@ -158,7 +159,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     margin: EdgeInsets.only(top: 3),
                                     height: 2,
                                     width: 55,
-                                    color: Colors.orange,
+                                    color: HexColor('#0b4e25'),
                                   ),
                               ],
                             ),
@@ -189,7 +190,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     margin: EdgeInsets.only(top: 3),
                                     height: 2,
                                     width: 55,
-                                    color: Colors.orange,
+                                    color: HexColor('#0b4e25'),
                                   ),
                               ],
                             ),
@@ -566,7 +567,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                         //   // 색이 어디서 끝날 것인지를 설정한다.
                         //   end: Alignment.bottomRight,
                         // ),
-                        color: Palette.secondColor,
+                        color: HexColor('#0b4e25'),
                         borderRadius: BorderRadius.circular(30.0),
                         boxShadow: [
                           BoxShadow(

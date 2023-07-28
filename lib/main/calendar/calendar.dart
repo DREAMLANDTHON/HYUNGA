@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import './booking_calendar/booking_calendar.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -81,11 +82,10 @@ class _BookingCalendarDemoAppState extends State<BookingCalendarDemoApp> {
           primarySwatch: Colors.blue,
         ),
         home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Parent Consultation Calendar'),
-          ),
+          backgroundColor: HexColor('#f5eee6'),
           body: Center(
             child: BookingCalendar(
+              bookingButtonColor: HexColor('#0b4e25'),
               bookingService: mockBookingService,
               convertStreamResultToDateTimeRanges: convertStreamResultMock,
               getBookingStream: getBookingStreamMock,
