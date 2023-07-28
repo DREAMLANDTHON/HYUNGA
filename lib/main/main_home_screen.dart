@@ -1,6 +1,7 @@
 import 'package:firebase_test/main/calendar/calendar.dart';
 import 'package:firebase_test/main/chat/chat_screen.dart';
-import 'package:firebase_test/main/home/home.dart';
+import 'package:firebase_test/main/imagenotify/imagenotify.dart';
+import 'package:firebase_test/main/search/search.dart';
 import 'package:firebase_test/main/profile/profile.dart';
 import '/main/main_theme.dart';
 import '/main/models/tabIcon_data.dart';
@@ -31,7 +32,7 @@ class _MainScreenState extends State<MainScreen>
 
     animationController = AnimationController(
         duration: const Duration(milliseconds: 600), vsync: this);
-    tabBody = HomeScreen(animationController: animationController);
+    tabBody = SearchScreen(animationController: animationController);
     super.initState();
   }
 
@@ -79,7 +80,9 @@ class _MainScreenState extends State<MainScreen>
         ),
         BottomBarView(
           tabIconsList: tabIconsList,
-          addClick: () {},
+          addClick: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ImageNotifyScreen()));
+          },
           changeIndex: (int index) {
             if (index == 0) { // 홈
               animationController?.reverse().then<dynamic>((data) {
@@ -88,7 +91,7 @@ class _MainScreenState extends State<MainScreen>
                 }
                 setState(() {
                   tabBody =
-                      HomeScreen(animationController: animationController);
+                      SearchScreen(animationController: animationController);
                 });
               });
             } else if (index == 1) { // 채팅
@@ -118,7 +121,7 @@ class _MainScreenState extends State<MainScreen>
                 }
                 setState(() {
                   tabBody =
-                      ProfileScreen(animationController: animationController);
+                      ProfileScreen();
                 });
               });
             }
