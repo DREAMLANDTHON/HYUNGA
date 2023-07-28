@@ -36,13 +36,13 @@ const neutral1 = Color(0xff615e6e);
 const neutral2 = Color(0xff9e9cab);
 
 /// N7.
-const neutral7 = Color(0xffffffff);
+const neutral7 = Color(0xfffcead5);
 
 /// N7 with opacity.
 const neutral7WithOpacity = Color(0x80ffffff);
 
 /// Primary.
-const primary = Color(0xff6f61e8);
+const primary = Color(0xff0b4e25);
 
 /// Secondary.
 const secondary = Color(0xfff5f5f7);
@@ -328,7 +328,7 @@ class DefaultChatTheme extends ChatTheme {
     super.inputContainerDecoration,
     super.inputMargin = EdgeInsets.zero,
     super.inputPadding = const EdgeInsets.fromLTRB(24, 20, 24, 20),
-    super.inputTextColor = neutral7,
+    super.inputTextColor = Colors.white,
     super.inputTextCursorColor,
     super.inputTextDecoration = const InputDecoration(
       border: InputBorder.none,
@@ -383,7 +383,7 @@ class DefaultChatTheme extends ChatTheme {
     super.sentMessageBodyCodeTextStyle,
     super.sentMessageBodyLinkTextStyle,
     super.sentMessageBodyTextStyle = const TextStyle(
-      color: neutral7,
+      color: Colors.white,
       fontSize: 16,
       fontWeight: FontWeight.w500,
       height: 1.5,

@@ -144,18 +144,18 @@ class _BottomBarViewState extends State<BottomBarView>
                     child: Container(
                       // alignment: Alignment.center,s
                       decoration: BoxDecoration(
-                        color: MainTheme.nearlyDarkBlue,
-                        gradient: LinearGradient(
-                            colors: [
-                              MainTheme.nearlyDarkBlue,
-                              HexColor('#6A88E5'),
-                            ],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight),
+                        color: HexColor('#107a39'),
+                        // gradient: LinearGradient(
+                        //     colors: [
+                        //       HexColor('#6bdd97'),
+                        //       HexColor('#0B4E25'),
+                        //     ],
+                        //     begin: Alignment.topLeft,
+                        //     end: Alignment.bottomRight),
                         shape: BoxShape.circle,
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                              color: MainTheme.nearlyDarkBlue
+                              color: HexColor('#107a39')
                                   .withOpacity(0.4),
                               offset: const Offset(8.0, 16.0),
                               blurRadius: 16.0),
