@@ -1,16 +1,7 @@
-# firebase_test
+# 드림랜드 해커톤 - 형아와 아이들
 
-A new Flutter project.
+> 기획자: 신채원
+디자이너: 김형진
+개발자: 김강현, 조유정, 최은교(리더)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+개발중입니다~♥️
