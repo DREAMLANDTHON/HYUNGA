@@ -1,249 +1,108 @@
-import '/main/ui_view/title_view.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import './booking_calendar/booking_calendar.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-import '../main_theme.dart';
-
-class CalendarScreen extends StatefulWidget {
-  const CalendarScreen({Key? key, this.animationController}) : super(key: key);
-
-  final AnimationController? animationController;
+class BookingCalendarDemoApp extends StatefulWidget {
+  const BookingCalendarDemoApp({Key? key}) : super(key: key);
 
   @override
-  _CalendarScreenState createState() => _CalendarScreenState();
+  State<BookingCalendarDemoApp> createState() => _BookingCalendarDemoAppState();
 }
 
-class _CalendarScreenState extends State<CalendarScreen>
-    with TickerProviderStateMixin {
-  final _authentication = FirebaseAuth.instance;
-  Animation<double>? topBarAnimation;
-
-  List<Widget> listViews = <Widget>[];
-  final ScrollController scrollController = ScrollController();
-  double topBarOpacity = 0.0;
+class _BookingCalendarDemoAppState extends State<BookingCalendarDemoApp> {
+  final now = DateTime.now();
+  late BookingService mockBookingService;
 
   @override
   void initState() {
-    topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-        CurvedAnimation(
-            parent: widget.animationController!,
-            curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
-    addAllListData();
-
-    scrollController.addListener(() {
-      if (scrollController.offset >= 24) {
-        if (topBarOpacity != 1.0) {
-          setState(() {
-            topBarOpacity = 1.0;
-          });
-        }
-      } else if (scrollController.offset <= 24 &&
-          scrollController.offset >= 0) {
-        if (topBarOpacity != scrollController.offset / 24) {
-          setState(() {
-            topBarOpacity = scrollController.offset / 24;
-          });
-        }
-      } else if (scrollController.offset <= 0) {
-        if (topBarOpacity != 0.0) {
-          setState(() {
-            topBarOpacity = 0.0;
-          });
-        }
-      }
-    });
     super.initState();
+    // DateTime.now().startOfDay
+    // DateTime.now().endOfDay
+    mockBookingService = BookingService(
+        serviceName: 'Mock Service',
+        serviceDuration: 30,
+        bookingEnd: DateTime(now.year, now.month, now.day, 18, 0),
+        bookingStart: DateTime(now.year, now.month, now.day, 8, 0));
   }
 
-  void addAllListData() {
-    const int count = 5;
-
-    listViews.add(Center(
-      child: Container(
-        padding: EdgeInsets.only(top: 30),
-        child: Text("calendar page"),
-      ),
-    ));
+  Stream<dynamic>? getBookingStreamMock(
+      {required DateTime end, required DateTime start}) {
+    return Stream.value([]);
   }
 
-  Future<bool> getData() async {
-    await Future<dynamic>.delayed(const Duration(milliseconds: 50));
-    return true;
+  Future<dynamic> uploadBookingMock(
+      {required BookingService newBooking}) async {
+    await Future.delayed(const Duration(seconds: 1));
+    converted.add(DateTimeRange(
+        start: newBooking.bookingStart, end: newBooking.bookingEnd));
+    print('${newBooking.toJson()} has been uploaded');
+  }
+
+  List<DateTimeRange> converted = [];
+
+  List<DateTimeRange> convertStreamResultMock({required dynamic streamResult}) {
+    ///here you can parse the streamresult and convert to [List<DateTimeRange>]
+    ///take care this is only mock, so if you add today as disabledDays it will still be visible on the first load
+    ///disabledDays will properly work with real data
+    DateTime first = now;
+    DateTime tomorrow = now.add(Duration(days: 1));
+    DateTime second = now.add(const Duration(minutes: 55));
+    DateTime third = now.subtract(const Duration(minutes: 240));
+    DateTime fourth = now.subtract(const Duration(minutes: 500));
+    converted.add(
+        DateTimeRange(start: first, end: now.add(const Duration(minutes: 30))));
+    converted.add(DateTimeRange(
+        start: second, end: second.add(const Duration(minutes: 23))));
+    converted.add(DateTimeRange(
+        start: third, end: third.add(const Duration(minutes: 15))));
+    converted.add(DateTimeRange(
+        start: fourth, end: fourth.add(const Duration(minutes: 50))));
+
+    //book whole day example
+    converted.add(DateTimeRange(
+        start: DateTime(tomorrow.year, tomorrow.month, tomorrow.day, 5, 0),
+        end: DateTime(tomorrow.year, tomorrow.month, tomorrow.day, 23, 0)));
+    return converted;
+  }
+
+  List<DateTimeRange> generatePauseSlots() {
+    return [
+      DateTimeRange(
+          start: DateTime(now.year, now.month, now.day, 12, 0),
+          end: DateTime(now.year, now.month, now.day, 13, 0))
+    ];
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: MainTheme.background,
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Stack(
-          children: <Widget>[
-            getMainListViewUI(),
-            getAppBarUI(),
-            SizedBox(
-              height: MediaQuery.of(context).padding.bottom,
-            )
-          ],
+    return MaterialApp(
+        title: 'Parent-Teacher Conference Reservation',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
         ),
-      ),
-    );
-  }
-
-  Widget getMainListViewUI() {
-    return FutureBuilder<bool>(
-      future: getData(),
-      builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-        if (!snapshot.hasData) {
-          return const SizedBox();
-        } else {
-          return ListView.builder(
-            controller: scrollController,
-            padding: EdgeInsets.only(
-              top: AppBar().preferredSize.height +
-                  MediaQuery.of(context).padding.top +
-                  24,
-              bottom: 62 + MediaQuery.of(context).padding.bottom,
+        home: Scaffold(
+          appBar: AppBar(
+            title: const Text('Parent Consultation Calendar'),
+          ),
+          body: Center(
+            child: BookingCalendar(
+              bookingService: mockBookingService,
+              convertStreamResultToDateTimeRanges: convertStreamResultMock,
+              getBookingStream: getBookingStreamMock,
+              uploadBooking: uploadBookingMock,
+              pauseSlots: generatePauseSlots(),
+              pauseSlotText: 'LUNCH',
+              hideBreakTime: false,
+              loadingWidget: const Text('Fetching data...'),
+              uploadingWidget: const CircularProgressIndicator(),
+              locale: 'en',
+              startingDayOfWeek: StartingDayOfWeek.tuesday,
+              wholeDayIsBookedWidget:
+              const Text('Sorry, for this day everything is booked'),
+              //disabledDates: [DateTime(2023, 1, 20)],
+              //disabledDays: [6, 7],
             ),
-            itemCount: listViews.length,
-            scrollDirection: Axis.vertical,
-            itemBuilder: (BuildContext context, int index) {
-              widget.animationController?.forward();
-              return listViews[index];
-            },
-          );
-        }
-      },
-    );
-  }
-
-  Widget getAppBarUI() {
-    return Column(
-      children: <Widget>[
-        AnimatedBuilder(
-          animation: widget.animationController!,
-          builder: (BuildContext context, Widget? child) {
-            return FadeTransition(
-              opacity: topBarAnimation!,
-              child: Transform(
-                transform: Matrix4.translationValues(
-                    0.0, 30 * (1.0 - topBarAnimation!.value), 0.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: MainTheme.white.withOpacity(topBarOpacity),
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(32.0),
-                    ),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color:
-                              MainTheme.grey.withOpacity(0.4 * topBarOpacity),
-                          offset: const Offset(1.1, 1.1),
-                          blurRadius: 10.0),
-                    ],
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: MediaQuery.of(context).padding.top,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: 16,
-                            right: 16,
-                            top: 16 - 8.0 * topBarOpacity,
-                            bottom: 12 - 8.0 * topBarOpacity),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  'Training',
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontFamily: MainTheme.fontName,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 22 + 6 - 6 * topBarOpacity,
-                                    letterSpacing: 1.2,
-                                    color: MainTheme.darkerText,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 38,
-                              width: 38,
-                              child: InkWell(
-                                highlightColor: Colors.transparent,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(32.0)),
-                                onTap: () {},
-                                child: Center(
-                                  child: Icon(
-                                    Icons.keyboard_arrow_left,
-                                    color: MainTheme.grey,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8,
-                                right: 8,
-                              ),
-                              child: Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8),
-                                    child: Icon(
-                                      Icons.calendar_today,
-                                      color: MainTheme.grey,
-                                      size: 18,
-                                    ),
-                                  ),
-                                  Text(
-                                    '15 May',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontFamily: MainTheme.fontName,
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 18,
-                                      letterSpacing: -0.2,
-                                      color: MainTheme.darkerText,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 38,
-                              width: 38,
-                              child: InkWell(
-                                highlightColor: Colors.transparent,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(32.0)),
-                                onTap: () {},
-                                child: Center(
-                                  child: Icon(
-                                    Icons.keyboard_arrow_right,
-                                    color: MainTheme.grey,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            );
-          },
-        )
-      ],
-    );
+          ),
+        ));
   }
 }

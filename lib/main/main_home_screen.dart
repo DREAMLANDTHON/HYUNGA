@@ -114,7 +114,10 @@ class _MainScreenState extends State<MainScreen>
                 }
                 setState(() {
                   tabBody =
-                      CalendarScreen(animationController: animationController);
+                      Container(
+                        padding: EdgeInsets.only(bottom: 70),
+                        child: BookingCalendarDemoApp(),
+                      );;
                 });
               });
             } else if(index == 3) { // 개인정보
