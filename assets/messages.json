@@ -1,0 +1,161 @@
+[
+  {
+    "author": {
+      "firstName": "Matthew",
+      "id": "82091008-a484-4a89-ae75-a22bf8d6f3ac",
+      "lastName": "White"
+    },
+    "createdAt": 1655648401000,
+    "id": "64747b28-df19-4a0c-8c47-316dc3546e3c",
+    "status": "seen",
+    "text": "I didn't know there was such an opportunity. Thank you.\n-\n그런 기회가 있는 줄 몰랐습니다. 감사해요.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "김영희 담임선생님",
+      "id": "4c2307ba-3d40-442f-b1ff-b271f63904ca",
+      "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
+      "lastName": ""
+    },
+    "createdAt": 1655648404000,
+    "id": "c67ed376-52bf-4d4e-ba2a-7a0f8467b22a",
+    "status": "seen",
+    "text": "다음 달에 학교에서 진행하는 독서토론 대회가 있는데, 참여해보면 좋을 것 같아요~ ☺\n-\n️There is a reading discussion contest held by the school next month, so it would be good to participate ☺",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "김영희 담임선생님",
+      "id": "4c2307ba-3d40-442f-b1ff-b271f63904ca",
+      "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
+      "lastName": ""
+    },
+    "createdAt": 1655648403000,
+    "height": 1280,
+    "id": "02797655-4d73-402e-a319-50fde79e2bc4",
+    "name": "madrid",
+    "size": 585000,
+    "status": "seen",
+    "type": "image",
+    "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_bDNxHY_VifVYNW61fa0vBwU21S0Llc7a2A&usqp=CAU",
+    "width": 1920
+  },
+  {
+    "author": {
+      "firstName": "김영희 담임선생님",
+      "id": "4c2307ba-3d40-442f-b1ff-b271f63904ca",
+      "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
+      "lastName": ""
+    },
+    "createdAt": 1655648402000,
+    "id": "4e048753-2d60-4144-bc28-9967050aaf12",
+    "status": "seen",
+    "text": "안녕하세요 철수어머니~ 오늘 학교에서 찍은 철수 사진입니다. 책에 관심이 많아 보이더라구요.\n-\nHello, Cheolsu's mother This is a picture of Cheolsu taken at school today. You seemed to be interested in books.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "Matthew",
+      "id": "82091008-a484-4a89-ae75-a22bf8d6f3ac",
+      "lastName": "White"
+    },
+    "createdAt": 1655648401000,
+    "id": "64747b28-df19-4a0c-8c47-316dc3546e3c",
+    "status": "seen",
+    "text": "Thank you for your help every time!\n-\n매번 도움을 주셔서 감사합니다",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "김영희 담임선생님",
+      "id": "4c2307ba-3d40-442f-b1ff-b271f63904ca",
+      "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
+      "lastName": ""
+    },
+    "createdAt": 1655648400000,
+    "id": "6a1a4351-cf05-4d0c-9d0f-47ed378b6112",
+    "mimeType": "application/pdf",
+    "name": "드림초 2학년 봄소풍 안내문.pdf",
+    "size": 10550000,
+    "status": "seen",
+    "type": "file",
+    "uri": "https://www.esmadrid.com/sites/default/files/documentos/madrid_imprescindible_2016_ing_web_0.pdf"
+  },
+  {
+    "author": {
+      "firstName": "김영희 담임선생님",
+      "id": "4c2307ba-3d40-442f-b1ff-b271f63904ca",
+      "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
+      "lastName": ""
+    },
+    "createdAt": 1655648402000,
+    "id": "4e048753-2d60-4144-bc28-9967050aaf12",
+    "status": "seen",
+    "text": "이번 봄소풍에 대한 안내문입니다! 준비물 확인 부탁드려요^^\n-\nHere's a notice for this spring picnic! Please check the supplies^^",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "김영희 담임선생님",
+      "id": "4c2307ba-3d40-442f-b1ff-b271f63904ca",
+      "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
+      "lastName": ""
+    },
+    "createdAt": 1655624464000,
+    "id": "38681a33-2563-42aa-957b-cfc12f791d16",
+    "status": "seen",
+    "text": "네 확인되셨어요~\n-\nYes, it's confirmed",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "Matthew",
+      "id": "82091008-a484-4a89-ae75-a22bf8d6f3ac",
+      "lastName": "White"
+    },
+    "createdAt": 1655624463000,
+    "id": "113bb2e8-f74e-42cd-aa30-4085a0f52c58",
+    "status": "seen",
+    "text": "Yes!\n-\n네!",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "김영희 담임선생님",
+      "id": "4c2307ba-3d40-442f-b1ff-b271f63904ca",
+      "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
+      "lastName": ""
+    },
+    "createdAt": 1655624462000,
+    "id": "22212d42-1252-4641-9786-d6f83b2ce4a8",
+    "status": "seen",
+    "text": "신청하시겠어요? 제가 바로 신청해드릴게요~\n-\nWould you like to apply? I'll request it right away",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "Matthew",
+      "id": "82091008-a484-4a89-ae75-a22bf8d6f3ac",
+      "lastName": "White"
+    },
+    "createdAt": 1655624461000,
+    "id": "afc2269a-374b-4382-8864-b3b60d1e8cd7",
+    "status": "seen",
+    "text": "I was actually thinking about doing it. What should I do?\n-\n안 그래도 하려고 생각중이었습니다. 어떻게 하면 되나요?",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "김영희 담임선생님",
+      "id": "4c2307ba-3d40-442f-b1ff-b271f63904ca",
+      "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
+      "lastName": ""
+    },
+    "createdAt": 1655624460000,
+    "id": "634b2f0b-2486-4bfe-b36d-1c7d6313c7b3",
+    "status": "seen",
+    "text": "안녕하세요~ 이번에 학교에서 지원하는 다문화가정 도움 사업이 있어서 연락드려요~\n-\nHello~ I am contacting you because there is a multicultural family support project supported by the school",
+    "type": "text"
+  }
+]

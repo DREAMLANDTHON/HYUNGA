@@ -1,3 +1,4 @@
+import 'package:firebase_test/childinfo/childinfo.dart';
 import 'package:firebase_test/main/main_home_screen.dart';
 import 'package:firebase_test/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         builder: (context, snapshot) {
           if(snapshot.hasData) {
             print(snapshot.data?.email);
-            return MainScreen();
+            return ChildInfoScreen();
           }
           return OnBoardingScreen();
         },

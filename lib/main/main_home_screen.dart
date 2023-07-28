@@ -101,7 +101,10 @@ class _MainScreenState extends State<MainScreen>
                 }
                 setState(() {
                   tabBody =
-                      ChatScreen(animationController: animationController);
+                      Container(
+                        padding: EdgeInsets.only(bottom: 70),
+                        child: ChatScreen(),
+                      );
                 });
               });
             } else if(index == 2) { // 캘린더
