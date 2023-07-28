@@ -3,16 +3,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import '../main_theme.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key, this.animationController}) : super(key: key);
+class SearchScreen extends StatefulWidget {
+  const SearchScreen({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _SearchScreenState createState() => _SearchScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
+class _SearchScreenState extends State<SearchScreen>
     with TickerProviderStateMixin {
   final _authentication = FirebaseAuth.instance;
   Animation<double>? topBarAnimation;
