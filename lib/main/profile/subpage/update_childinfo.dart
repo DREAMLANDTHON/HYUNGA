@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import 'customtextfield.dart';
+import '../../../childinfo/customtextfield.dart';
 
-class ChildInfoScreen extends StatefulWidget {
+class UpdateChildInfoScreen extends StatefulWidget {
   @override
-  _ChildInfoScreenState createState() => _ChildInfoScreenState();
+  _UpdateChildInfoScreenState createState() => _UpdateChildInfoScreenState();
 }
 
-class _ChildInfoScreenState extends State<ChildInfoScreen> {
+class _UpdateChildInfoScreenState extends State<UpdateChildInfoScreen> {
   int? selectedRadio;
   int? selectedRadioTile;
   final _formKey = GlobalKey<FormState>();
@@ -260,12 +260,7 @@ class _ChildInfoScreenState extends State<ChildInfoScreen> {
         Center(
           child: TextButton(
             onPressed: () {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => MainScreen()),
-                    (route) => false,
-              );
+              Navigator.pop(context);
             },
             child: Text(
               "DONE",

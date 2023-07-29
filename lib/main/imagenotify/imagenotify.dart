@@ -4,6 +4,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'package:like_button/like_button.dart';
 
 class ImageNotifyScreen extends StatefulWidget {
   const ImageNotifyScreen({Key? key}) : super(key: key);
@@ -53,7 +54,7 @@ class _ImageNotifyScreenState extends State<ImageNotifyScreen> {
     var url = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
     var header = {
       "Authorization":
-          "Bearer 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",
+          "Bearer API_KEY",
       "Content-Type": "application/json"
     };
     var payload = jsonEncode(
@@ -90,6 +91,8 @@ class _ImageNotifyScreenState extends State<ImageNotifyScreen> {
                 _buildRecognizedText(),
                 SizedBox(height: 20),
                 _buildChatGptResponse(),
+                SizedBox(height: 50),
+                _buildLikeButton(),
                 SizedBox(height: 20),
                 _buildButton(),
                 SizedBox(height: 20),
@@ -120,7 +123,11 @@ class _ImageNotifyScreenState extends State<ImageNotifyScreen> {
             width: double.infinity,
             child: Text(
               'Please upload a photo',
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: HexColor('#0b4e25')
+              ),
             ),
           );
   }
@@ -129,16 +136,17 @@ class _ImageNotifyScreenState extends State<ImageNotifyScreen> {
     return Container(
       child: Column(
         children: [
+          if(_parsedtext != "")
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
                 margin: EdgeInsets.only(top: 3),
                 height: 2,
-                width: 130,
+                width: 110,
                 color: HexColor('#0b4e25'),
               ),
-              Text('  번역  ', style: TextStyle(
+              Text('  Text Scan  ', style: TextStyle(
                 color: HexColor('#0b4e25'),
                 fontSize: 20,
                 fontWeight: FontWeight.bold
@@ -146,7 +154,7 @@ class _ImageNotifyScreenState extends State<ImageNotifyScreen> {
               Container(
                 margin: EdgeInsets.only(top: 3),
                 height: 2,
-                width: 130,
+                width: 110,
                 color: HexColor('#0b4e25'),
               ),
             ],
@@ -164,16 +172,17 @@ class _ImageNotifyScreenState extends State<ImageNotifyScreen> {
     return Container(
       child: Column(
         children: [
+          if(_chatGptResponse != "")
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
                 margin: EdgeInsets.only(top: 3),
                 height: 2,
-                width: 130,
+                width: 120,
                 color: HexColor('#0b4e25'),
               ),
-              Text('  요약  ', style: TextStyle(
+              Text('  Summary  ', style: TextStyle(
                   color: HexColor('#0b4e25'),
                   fontSize: 20,
                   fontWeight: FontWeight.bold
@@ -181,7 +190,7 @@ class _ImageNotifyScreenState extends State<ImageNotifyScreen> {
               Container(
                 margin: EdgeInsets.only(top: 3),
                 height: 2,
-                width: 130,
+                width: 120,
                 color: HexColor('#0b4e25'),
               ),
             ],
@@ -189,6 +198,29 @@ class _ImageNotifyScreenState extends State<ImageNotifyScreen> {
           Text(
             _chatGptResponse,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLikeButton() {
+    return Container(
+      child: Column(
+        children: [
+          if(_parsedtext != "" && _chatGptResponse != "")
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Are you satisfied?', style: TextStyle(
+                color: HexColor('#0b4e25'),
+                fontSize: 20,
+              ),),
+              SizedBox(width: 10,),
+              LikeButton(
+                size: 25,
+              )
+            ],
           ),
         ],
       ),

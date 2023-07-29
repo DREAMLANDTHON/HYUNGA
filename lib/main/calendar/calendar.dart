@@ -77,6 +77,7 @@ class _BookingCalendarDemoAppState extends State<BookingCalendarDemoApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Parent-Teacher Conference Reservation',
         theme: ThemeData(
           primarySwatch: Colors.blue,

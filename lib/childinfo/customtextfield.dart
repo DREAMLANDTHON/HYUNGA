@@ -10,12 +10,12 @@ class CustomTextField extends StatelessWidget {
 
   const CustomTextField(
       {Key? key,
-        required this.validator,
-        required this.text,
-        required this.keyboardType,
-        required this.onSaved,
-        required this.obscureText,
-        required this.onChanged})
+      required this.validator,
+      required this.text,
+      required this.keyboardType,
+      required this.onSaved,
+      required this.obscureText,
+      required this.onChanged})
       : super(key: key);
 
   @override
@@ -24,7 +24,7 @@ class CustomTextField extends StatelessWidget {
       margin: EdgeInsets.only(top: 20),
       padding: const EdgeInsets.only(left: 15.0),
       decoration: BoxDecoration(
-          color: Color(0xFFE4E4E4), borderRadius: BorderRadius.circular(20)),
+          color: Color(0xFF0b4e25), borderRadius: BorderRadius.circular(20)),
       child: TextFormField(
         obscureText: obscureText,
         keyboardType: keyboardType,
@@ -32,8 +32,14 @@ class CustomTextField extends StatelessWidget {
         onSaved: onSaved,
         validator: validator,
         decoration: InputDecoration(
-          labelText: text,
+          label: Text(
+            text,
+            style: TextStyle(color: Colors.white),
+          ),
           border: InputBorder.none,
+        ),
+        style: TextStyle(
+          color: Colors.white
         ),
       ),
     );

@@ -1,3 +1,7 @@
+import 'package:firebase_test/childinfo/childinfo.dart';
+import 'package:firebase_test/main/profile/subpage/calling.dart';
+import 'package:firebase_test/main/profile/subpage/map.dart';
+import 'package:firebase_test/main/profile/subpage/update_childinfo.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,22 +23,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: pressed ? Colors.grey[850] : Colors.grey[300],
-      appBar: AppBar(
-        title: Text(
-          'Profile Page',
-          style: pressed
-              ? TextStyle(
-                  color: Colors.grey[300],
-                )
-              : TextStyle(
-                  color: Colors.grey[800],
-                ),
-        ),
-        centerTitle: true,
-        backgroundColor: pressed ? Colors.grey[900] : Colors.grey[100],
-      ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.fromLTRB(10, 35, 10, 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -82,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             SizedBox(
-              height: 20.0,
+              height: 15.0,
             ),
             Container(
               margin: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
@@ -102,7 +92,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 trailing: IconButton(
                   icon: Icon(Icons.navigate_next),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => UpdateChildInfoScreen()));
+                  },
                   color: Colors.grey[400],
                 ),
               ),
@@ -128,7 +123,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 trailing: IconButton(
                   icon: Icon(Icons.navigate_next),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CallingScreen()));
+                  },
                   color: Colors.grey[400],
                 ),
               ),
@@ -154,7 +154,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 trailing: IconButton(
                   icon: Icon(Icons.navigate_next),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MapScreen()));
+                  },
                   color: Colors.grey[400],
                 ),
               ),
@@ -212,6 +217,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     enabledTrackColor: HexColor('#0b4e25'),
                     type: GFToggleType.ios,
                   )),
+            ),
+            Divider(
+              height: 0.20,
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
+              color: pressed ? Colors.grey[700] : Colors.grey[100],
+              child: ListTile(
+                leading: Icon(
+                  Icons.settings,
+                  color: pressed ? Colors.grey[400] : Colors.grey[800],
+                ),
+                title: Text(
+                  'Setting',
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                    fontSize: 15.0,
+                    letterSpacing: 0.5,
+                  ),
+                ),
+                trailing: IconButton(
+                  icon: Icon(Icons.navigate_next),
+                  onPressed: () {},
+                  color: Colors.grey[400],
+                ),
+              ),
             ),
             Divider(
               height: 0.20,

@@ -169,7 +169,7 @@ class _BottomBarViewState extends State<BottomBarView>
                           focusColor: Colors.transparent,
                           onTap: widget.addClick,
                           child: Icon(
-                            Icons.add,
+                            Icons.camera_alt,
                             color: MainTheme.white,
                             size: 32,
                           ),

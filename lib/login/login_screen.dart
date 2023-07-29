@@ -1,3 +1,4 @@
+import 'package:firebase_test/childinfo/childinfo.dart';
 import 'package:firebase_test/main/main_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -545,7 +546,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return MainScreen();
+                                return ChildInfoScreen();
                               }),
                             );
                           }
