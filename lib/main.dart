@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         builder: (context, snapshot) {
           if(snapshot.hasData) {
             print(snapshot.data?.email);
-            return ChildInfoScreen();
+            return MainScreen();
           }
           return OnboardingImage();
         },
