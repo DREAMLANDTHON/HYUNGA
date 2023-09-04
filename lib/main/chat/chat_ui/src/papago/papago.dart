@@ -5,8 +5,8 @@ class Papago{
 
   static Future<String> language(String text) async {
     Map<String, String> headers = {
-      "X-Naver-Client-Id" : "6iXNmTNDaRpbIdyyw6Pc",
-      "X-Naver-Client-Secret" : "22wE1A6yKd",
+      "X-Naver-Client-Id" : "YOUR_NAVER_CLENT_ID",
+      "X-Naver-Client-Secret" : "YOUR_NAVAR_CLENT_SECRET",
       "Content-Type": "application/x-www-form-urlencoded",
     };
 
@@ -44,8 +44,8 @@ class Papago{
     }
 
     Map<String, String> headers = {
-      "X-Naver-Client-Id" : "b0yN0QNZyHG_kgQvu6wu",
-      "X-Naver-Client-Secret" : "9PX6PIS1SY",
+      "X-Naver-Client-Id" : "YOUR_NAVER_CLENT_ID",
+      "X-Naver-Client-Secret" : "YOUR_NAVAR_CLENT_SECRET",
       "Content-Type": "application/x-www-form-urlencoded",
     };
 
